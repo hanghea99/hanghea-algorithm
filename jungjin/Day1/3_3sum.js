@@ -22,6 +22,8 @@ const solution = (nums) => {
   const len = nums.length;
 
   for (let i = 0; i < len - 2; i++) {
+    // 비교 대상 첫번째의 값이 0이상이면 합을 구해도 0을 구할 수 없기 때문에 추가 한 코드
+    if (nums[i] > 0) return answer;
     if (i > 0 && nums[i] == nums[i - 1]) continue;
 
     let left = i + 1;

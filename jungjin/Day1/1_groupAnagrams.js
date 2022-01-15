@@ -32,6 +32,6 @@ const solution = (strs) => {
 
   return answer;
 };
-// O(n^2)?
+// O(n)
 
 console.log(solution(strs));

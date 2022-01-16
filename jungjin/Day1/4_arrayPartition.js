@@ -3,26 +3,17 @@
 
 n개의 페어를 이용한 min(a,b)의 합으로 만들 수 있는 가장 큰 수를 출력하라
 
+배열 입력값은 항상 2n개 
+
 */
 
-const nums = [1, 4, 3, 2];
-
 const solution = (nums) => {
-  let sum = 0;
-  pair = [];
+  let answer = 0;
   nums.sort((a, b) => a - b);
-  // console.log(nums);
-  for (i in nums) {
-    pair.push(nums[i]);
-    if (pair.length == 2) {
-      // ES6 문법 사용 스프레드 문법
-      sum += Math.min(...pair);
-      // 그전
-      // sum += Math.min.apply(Math, pair);
-      pair = [];
-    }
+  for (let i = 0; i < nums.length; i++) {
+    if (i % 2 === 0) answer += nums[i];
   }
-  return sum;
+  return answer;
 };
 
 console.log(solution(nums));

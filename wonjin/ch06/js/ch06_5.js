@@ -3,17 +3,18 @@ strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
 
 function solution(arr) {
   let obj = {};
+
   for (let word of arr) {
     let s_sort = word.toLowerCase().split("").sort().join("");
+
     if (obj.hasOwnProperty(s_sort)) {
       obj[s_sort].push(word);
     } else {
       obj[s_sort] = [word];
     }
   }
-  return obj;
+  return Object.values(obj);
 }
 
 let answer = solution(strs);
-console.log(Object.values(answer));
-console.log(Object.entries(answer));
+console.log(answer);

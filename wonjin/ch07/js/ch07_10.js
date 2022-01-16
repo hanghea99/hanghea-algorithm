@@ -6,4 +6,4 @@ var arrayPairSum = function (nums) {
   return answer.reduce((sum, cur) => sum + cur, 0);
 };
 
-arrayPairSum(nums);
+console.log(arrayPairSum(nums));

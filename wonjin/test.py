@@ -1,18 +1,36 @@
-from typing import List
+from typing import List, Optional
 
 
-def twoSum(nums: List[int], target: int) -> List[int]:
-    for idx, n in enumerate(nums):
-        complement = target - n
-        print(nums[idx+1:])
-        if complement in nums[idx+1:]:
-            print(nums[idx+1:].index(complement))
-            print([idx, nums[idx+1:].index(complement)+(idx+1)])
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-            return [idx, nums[idx+1:].index(complement)+(idx+1)]
+
+class Solution:
+    def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None:
+            return None
+
+        odd = head
+        even = head.next
+        even_head = head.next
+
+        while even and even.next:
+            odd.next = odd.next.next
+            even.next = even.next.next
+            odd = odd.next
+            even = even.next
+            print(odd)
+            print(even)
+
+        odd.next = even_head
+        return head
 
 
 if __name__ == '__main__':
-    nums = [2, 7, 11, 15]
-    target = 26
-    twoSum(nums, target)
+    head = ListNode(1, ListNode(2, ListNode(
+        3, ListNode(4, ListNode(5, None)))))
+    LinkedFun = Solution()
+    LinkedFun.oddEvenList(head)

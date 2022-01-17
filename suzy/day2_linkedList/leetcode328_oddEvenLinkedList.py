@@ -3,8 +3,8 @@ from suzy.day2_linkedList.genLinkedList import *
 
 # solutions
 
-# 홀수번째 노드들은 무조건 앞으로, 짝수번째 노드들은 무조건 뒤로
-# 마지막에 홀수/짝수번째 노드 정리되면 마지막 홀수번째 노드랑 첫번째 짝수 노드랑 연결
+# 홀수번째 노드들은 홀수들끼리, 짝수번째 노드들은 짝수들끼리 따로따로 연결
+# 홀수/짝수 노드들 각자 연결되면 마지막 홀수 노드랑 첫번째 짝수 노드랑 연결
 def oddEvenList(head: Optional[ListNode]) -> Optional[ListNode]:
     if head is None:
         return None

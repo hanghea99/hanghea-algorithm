@@ -103,7 +103,26 @@ class Solution:
             node = node.next
         return answer
 ```
-
+다른 풀이
+```py
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None:
+            return None
+        prev = None
+        node = head
+        while node:
+            temp_next_node = node.next
+            node.next = prev
+            prev = node
+            node = temp_next_node
+        return prev
+```
 ## 328. [Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)
 
 ```py

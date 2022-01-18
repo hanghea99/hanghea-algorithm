@@ -150,3 +150,24 @@ class MyCircularQueue:
 # param_5 = obj.isEmpty()
 # param_6 = obj.isFull()
 ```
+
+## 백준 [괄호](https://www.acmicpc.net/problem/9012)
+
+```py
+for _ in range(int(input())):
+    cnt = 0
+    ck = True
+    for char in input():
+        if char == "(": cnt += 1
+        else:
+            if cnt:
+                cnt -= 1
+            else:
+                ck = False
+                break
+
+    if ck and cnt == 0:
+        print('YES')
+    else:
+        print('NO')
+```

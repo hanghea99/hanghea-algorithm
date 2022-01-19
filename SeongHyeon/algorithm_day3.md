@@ -57,6 +57,50 @@ class Solution:
         return ''
 ```
 
+## 백준 [괄호](https://www.acmicpc.net/problem/9012)
+
+```py
+for _ in range(int(input())):
+    cnt = 0
+    ck = True
+    for char in input():
+        if char == "(": cnt += 1
+        else:
+            if cnt:
+                cnt -= 1
+            else:
+                ck = False
+                break
+
+    if ck and cnt == 0:
+        print('YES')
+    else:
+        print('NO')
+```
+
+## 백준 [스택 수열](https://www.acmicpc.net/problem/1874)
+
+```py
+for _ in range(int(input())):
+    num = int(input())
+    if num > input_num:
+        stack += [x for x in range(input_num + 1, num)]
+        answers += ['+' for _ in range(num - input_num)] + ['-']
+        input_num = num
+
+    else:
+        if stack[-1] == num:
+            stack.pop()
+            answers.append('-')
+        else:
+            print('NO')
+            quit()
+            break
+for answer in answers:
+    print(answer)
+
+```
+
 ## 232. [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
 
 ```py
@@ -151,23 +195,51 @@ class MyCircularQueue:
 # param_6 = obj.isFull()
 ```
 
-## 백준 [괄호](https://www.acmicpc.net/problem/9012)
+## 백준 [카드2](https://www.acmicpc.net/problem/2164)
+
+카드의 개수가 짝수 홀수일 때 둘 다 card[1::2]라고 생각해서 오래걸렸음
+
+```py
+n = int(input())
+card = [x + 1 for x in range(n)]
+while len(card) > 1:
+    if len(card) % 2:
+        card = [card[-1]] + [x for x in card[1::2]]
+    else:
+        card = [x for x in card[1::2]]
+print(card[-1])
+```
+
+## 백준 [프린터 큐](https://www.acmicpc.net/problem/1966)
 
 ```py
 for _ in range(int(input())):
-    cnt = 0
-    ck = True
-    for char in input():
-        if char == "(": cnt += 1
-        else:
-            if cnt:
-                cnt -= 1
-            else:
-                ck = False
+    documents_num, idx = map(int, input().split())
+    count = 1
+    documents = list(map(int, input().split()))
+    print('documents', documents)
+    queue = deque(documents)
+    heap = []
+    for document in documents:
+        heapq.heappush(heap, -document)
+    print('heap', heap)
+    max_value = -heapq.heappop(heap)
+    print('max_value', max_value)
+    while True:
+        if queue[0] == max_value:
+            if idx == 0:
+                print('answer', count)
                 break
-
-    if ck and cnt == 0:
-        print('YES')
-    else:
-        print('NO')
+            else:
+                queue.popleft()
+                count += 1
+                idx -= 1
+                max_value = -heapq.heappop(heap)
+        else:
+            if idx == 0:
+                queue.append(queue.popleft())
+                idx = len(queue) - 1
+            else:
+                queue.append(queue.popleft())
+                idx -= 1
 ```

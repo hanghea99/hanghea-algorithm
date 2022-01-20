@@ -1,5 +1,6 @@
-# 중복문자 제거 [JavaScript, node.js]
+# 중복문자 제거 [Python]
 
+## [문제]() 
 ## 의사 코드
 - 배열로 들어온 온도의 인덱스의 차이를 이용한다.
 1. answer에 T길이 만큼 0으로 초기화된 배열을 생성한다.
@@ -9,13 +10,7 @@
 5. 스택에 요소가 없고, 이전보다 온도가 낮다면 스택에 인덱스 i를 추가합니다.
 
 
-#### Code
-
-```js
-
-```
-
-### py code
+#### py code
 ```py
 class Solution:
     def dailyTemperatures(self, T: List[int]) -> List[int]:

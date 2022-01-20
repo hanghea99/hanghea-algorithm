@@ -1,12 +1,5 @@
-# 스택을 이용한 큐 구현 [JavaScript, node.js]
+# 스택을 이용한 큐 구현 [Python]
 
-## 의사 코드
-
-#### Code
-
-```js
-
-```
 
 ### py code
 ```py

@@ -12,7 +12,7 @@ Input: strs = ["eat","tea","tan","ate","nat","bat"]
 Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 
 ## 제약:
-- 1 <= strs.length <= 104
+- 1 <= strs.length <= 104 
 - 0 <= strs[i].length <= 100
 - strs[i] 영문 소문자로 구성되어 있습니다.
 

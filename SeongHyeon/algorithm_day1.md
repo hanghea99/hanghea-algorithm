@@ -1,6 +1,6 @@
-예외처리 항상 먼저 생각
+# Algorithm Day1
 
-# 그룹 애너그램
+## 그룹 애너그램
 
 ```py
 class Solution:
@@ -11,7 +11,7 @@ class Solution:
         return dic.values()
 ```
 
-# 가장 긴 팰린드롬 부분 문자열
+## 가장 긴 팰린드롬 부분 문자열
 
 ```py
 class Solution:
@@ -30,7 +30,7 @@ class Solution:
         return answer
 ```
 
-# 세 수의 합
+## 세 수의 합
 
 예외처리: 중복 제거가 중요
 
@@ -62,7 +62,7 @@ class Solution:
         return answer 
 ```
 
-# 배열 파티션
+## 배열 파티션
 
 직접 케이스들을 실험해 본 후 정렬한 후에 순서대로 묶었을 때가 가장 큰 합이라는 것을 알게 됨
 

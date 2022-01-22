@@ -1,4 +1,4 @@
-# Algorithm_day2
+# Algorithm Day2
 
 ## 234. [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
 

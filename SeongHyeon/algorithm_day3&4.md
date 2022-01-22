@@ -244,3 +244,24 @@ for _ in range(int(input())):
                 queue.append(queue.popleft())
                 idx -= 1
 ```
+
+## 20. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+
+pair를 생성함으로써 깔끔한 코드화
+
+```py
+class Solution:
+    def isValid(self, s: str) -> bool:
+        pair = {'(':')','{':'}', '[':']'}
+        stack = []
+        for char in s:
+            if char in pair:
+                stack.append(char)
+            else:
+                if not stack or pair[stack[-1]] != char:
+                    return False
+                stack.pop()
+        if stack:
+            return False
+        return True
+```

@@ -49,6 +49,14 @@ class Solution:
         return [x[0] for x in Counter(nums).most_common(k)]
 ```
 
+다른 풀이 - zip과 \*을 활용
+
+```py
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        return list(zip(*Counter(nums).most_common(k)))[0]
+```
+
 ## 백준 [수 찾기](https://www.acmicpc.net/problem/1920)
 
 ```py

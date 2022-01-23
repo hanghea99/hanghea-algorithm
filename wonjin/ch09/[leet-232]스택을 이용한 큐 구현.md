@@ -1,6 +1,5 @@
 # 스택을 이용한 큐 구현 [Python]
 
-
 ### py code
 ```py
 

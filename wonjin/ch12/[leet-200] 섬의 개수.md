@@ -5,7 +5,8 @@
 ## 의사코드
 1. 그래프를 인접 행렬로 나타내었다. 이중 배열을 모두 돌면서 상하좌우에서 값이 1일때 방문 처리를 하고 0으로 만들준다.
 2. 상하좌우가 0을 넘지않고, rows, cols를 넘어가지 않는지 확인한다.
-3. 
+
+
 ### py code
 ```py
 # 스택을 이용한 DFS풀이
@@ -68,4 +69,39 @@ class Solution:
 
         return cnt
 
+```
+
+### py code 03
+
+```py
+# 큐를 이용해서 BFS로 구현
+from collections import deque
+
+
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        dx = [0,0,1,-1]
+        dy = [1, -1, 0, 0]
+        rows, cols = len(grid), len(grid[0])
+        cnt=0
+
+        for row in range(rows):
+            for col in range(cols):
+                if grid[row][col] !='1':
+                    continue
+
+                cnt+=1
+                q=deque([(row,col)])
+
+                while q:
+                    x, y = q.popleft()
+                    for i in range(4):
+                        nx = x + dx[i]
+                        ny = y + dy[i]
+                        if nx<0 or ny<0 or nx>=rows or ny>=cols or grid[nx][ny] !="1":
+                            continue
+                        grid[nx][ny]='0'
+                        q.append((nx,ny))
+
+        return cnt
 ```

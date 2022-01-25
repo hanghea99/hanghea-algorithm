@@ -4,8 +4,9 @@
 
 ```python
 node_count = int(input())
-tree = [] * node_count
-parents = [0] * node_count
+# 0번째 노드는 무조건 공란, 1부터 node_count번째 노드들만 채워진다
+tree = [] * (node_count + 1)
+parents = [0] * (node_count + 1)
 
 for _ in range(node_count-1):
     node0, node1 = map(int, input().split())
@@ -19,4 +20,7 @@ def dfs(root, tree, parents):
             dfs(node, tree, parents)
             
 dfs(1, tree, parents)
+
+for index in range(2, node_count+1):
+    print(parents[index])
 ```

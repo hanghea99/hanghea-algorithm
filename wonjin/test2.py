@@ -1,34 +1,31 @@
-from collections import deque
 import sys
+from typing import List
 input = sys.stdin.readline
 
 
-def get_card(num):
-    # 1번 카드가 제일 위에, N번 카드가 제일 아래인 상태로 순서대로 카드가 놓여 있다.
+def topKFrequent(nums: List[int], k: int) -> List[int]:
+    freqs = collections.Counter(nums)
 
-    # 1 ~ N번까지 카드를 데크로 생성
-    queue = deque([n for n in range(1, num+1)])
-    print('1 ~ N번까지 카드 : ', queue)
+    freqs_heap = []
+        # 힙에 음수로 삽입
+    
+    print(freqs_heap)
 
-    i = 1
-    print("==========================")
+    for f in freqs:
+        print((-freqs[f], f))
+        heapq.heappush(freqs_heap, (freqs[f], f))
 
-    # 같은 동작을 카드가 한 장 남을 때까지 반복하게 된다.
-    while len(queue) > 1:
-        print(f"반복횟수: {i}")
-        i += 1
+    print(freqs_heap)
+    topk = list()
 
-        # 제일 위에 있는 카드를 바닥에 버린다. 제거한다.
-        print('제일 위에 있는 카드 제거 전 : ', queue)
-        queue.popleft()
-        print('제일 위에 있는 카드 제거 후 : ', queue)
+    # k번 만큼 추출, 민 힙 이므로 가장 작은 음수 순으로 추출
+    for i in range(k):
+        t=heapq.heappop(freqs_heap)
+        print(t)
 
-        #  제일 위에 있는 카드를 제일 아래에 있는 카드 밑으로 옮긴다.
-        queue.append(queue.popleft())
-        print('위에 있는 카드 -> 아래로 옮긴다. : ', queue)
-        print("queue len:", len(queue))
-        print("==========================")
-    return queue.pop()
+        topk.append(t[1])
+       
+    return topk
 
 
 if __name__ == '__main__':
@@ -37,7 +34,5 @@ if __name__ == '__main__':
     # n = int(input())
     # print(get_card(n))
 
-    queue = get_card(6)
+    queue = topKFrequent([1,1,1,2,2,3],2)
     print("answer:", queue)
-    stack=[]
-    print(bool(stack.pop()==1))
